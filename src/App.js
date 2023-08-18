@@ -1,41 +1,33 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import React, { useEffect } from 'react';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+import Headroom from 'react-headroom';
+import LocomotiveScroll from 'locomotive-scroll';
+import './App.css';
+import Navbar from './Components/Common/Navbar/Navbar';
+import Footer from './Components/Common/Footer/Footer';
+import Home from './Components/Pages/Home/Home';
+import About from './Components/Pages/About/About';
 
 function App() {
+  useEffect(() => {
+    const scroll = new LocomotiveScroll(
+      {
+        el: document.querySelector('#main'),
+        smooth: true,
+      },
+      []
+    );
+  });
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
+    <div id="main">
+      <ChakraProvider theme={theme}>
+        <Headroom>
+          <Navbar />
+        </Headroom>
+        <Home />
+        <About />
+      </ChakraProvider>
+    </div>
   );
 }
 
