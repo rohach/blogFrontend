@@ -4,9 +4,9 @@ import Headroom from 'react-headroom';
 import LocomotiveScroll from 'locomotive-scroll';
 import './App.css';
 import Navbar from './Components/Common/Navbar/Navbar';
-import Footer from './Components/Common/Footer/Footer';
 import Home from './Components/Pages/Home/Home';
 import About from './Components/Pages/About/About';
+import Latest from './Components/Pages/Latest/Latest';
 
 function App() {
   useEffect(() => {
@@ -25,6 +25,7 @@ function App() {
           <Navbar />
         </Headroom>
         <Home />
+        <Latest />
         <About />
       </ChakraProvider>
     </div>

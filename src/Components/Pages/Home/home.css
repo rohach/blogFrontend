@@ -7,7 +7,7 @@
 .small_heading {
   margin-left: 10vw;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: var(--spacing);
   font-size: 14px;
 }
 .blog {

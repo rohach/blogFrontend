@@ -2,17 +2,33 @@ import React from 'react';
 import './about.css';
 import img from '../../Assets/bg.jpg';
 import pp from '../../Assets/profile.jpg';
-import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
-    <section>
+    <section style={{ marginTop: '15vh' }}>
+      <div className="smallLine"></div>
+      <div className="recent" style={{ marginBottom: '10vh' }}>
+        Latest Posts
+      </div>
       <div className="about">
         <div className="about_left">
           <div className="date">Nov. 15th 2016</div>
           <div className="heading">Modeling & Stylist in USA</div>
           <div className="category">LIFESTYLE</div>
           <img src={img} alt="post image" className="post_img" />
+          <p className="main_desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias
+            accusamus, officia mollitia modi minus consequuntur asperiores
+            sequi, consectetur qui obcaecati est cumque fugit recusandae,
+            eligendi praesentium adipisci dolorum nostrum. Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Error alias accusamus, officia
+            mollitia modi minus consequuntur asperiores sequi, consectetur qui
+            obcaecati est cumque fugit recusandae, eligendi praesentium adipisci
+            dolorum nostrum.
+          </p>
+          <button className="share">
+            Read more <i className="ri-arrow-right-fill"></i>
+          </button>
         </div>
         <div className="about_right">
           <div className="col-md-12 col-md-offset-0 text-center line">

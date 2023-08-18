@@ -18,7 +18,7 @@ const Navbar = () => {
   const btnRef = React.useRef();
   return (
     <div className="navbar">
-      <section>
+      <div className="section">
         <Drawer
           isOpen={isOpen}
           // placement="full"
@@ -70,7 +70,7 @@ const Navbar = () => {
             </ul>
           </div>
         </nav>
-      </section>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,26 @@
+.recent {
+  letter-spacing: var(--spacing);
+  text-transform: uppercase;
+}
+.latest {
+  display: flex;
+  gap: 2rem;
+  margin-top: var(--margin);
+}
+
+.latest_heading {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.latest_desc {
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+.latest_img {
+  height: 20vw;
+  width: 20vw;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 1vw;
+}
