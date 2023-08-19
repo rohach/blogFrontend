@@ -3,7 +3,7 @@ import './home.css';
 
 const Home = () => {
   return (
-    <section>
+    <section style={{ marginTop: '0px' }}>
       <div className="home">
         <div className="small_heading">
           A personal <span className="blog">blog</span>

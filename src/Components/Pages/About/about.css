@@ -26,6 +26,9 @@
 .main_desc {
   opacity: 0.8;
   margin-top: 5vh;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-align: center;
 }
 .share {
   letter-spacing: 1px;
