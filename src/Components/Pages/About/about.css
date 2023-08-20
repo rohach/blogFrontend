@@ -5,7 +5,6 @@
 .about_left {
   width: 75%;
   display: flex;
-  align-items: center;
   flex-direction: column;
 }
 .date {
@@ -17,7 +16,7 @@
   font-weight: 300;
   margin-bottom: 0.5rem;
 }
-.category {
+.category_heading {
   margin-bottom: 5vh;
 }
 .post_img {
@@ -34,6 +33,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   opacity: 0.8;
+  cursor: pointer;
 }
 .share:hover {
   opacity: 1;
@@ -41,7 +41,14 @@
 }
 .about_right {
   width: 25%;
-  margin-top: 3vw;
+  margin-top: -2rem;
+}
+.category {
+  display: flex;
+  margin-top: 2rem;
+  gap: 1rem;
+  flex-direction: column;
+  text-align: left;
 }
 .my_image {
   height: 150px;
@@ -91,21 +98,18 @@
 .latest_posts {
   margin-top: 2vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 1rem;
   border-bottom: 1px solid var(--text-dark);
 }
 .latest_post {
   display: flex;
   gap: 1rem;
+  cursor: pointer;
 }
-.latest_post > * {
-  flex-basis: 100%;
-}
+
 .latest_post_img {
   width: 100px;
-  height: 100px;
+  height: 80px;
   border-radius: 5px;
   object-fit: cover;
 }
@@ -116,7 +120,13 @@
 }
 .latest_post_desc_date {
   opacity: 0.6;
+  font-size: 14px;
 }
 .latest_post_desc_title {
   font-size: 20px;
+}
+.load_more {
+  text-align: center;
+  cursor: pointer;
+  margin-top: 1rem;
 }

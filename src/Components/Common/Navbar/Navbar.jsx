@@ -10,12 +10,21 @@ import {
   Input,
   DrawerFooter,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import './navbar.css';
+import { Context } from '../../Context/Context';
 
 const Navbar = () => {
+  const { user, dispatch } = useContext(Context);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
+  const handleLogout = () => {
+    dispatch({
+      type: 'LOGOUT',
+    });
+  };
   return (
     <div className="navbar">
       <div className="section">
@@ -51,13 +60,25 @@ const Navbar = () => {
             </label>
             <ul className="nav_ul">
               <li className="nav_links">
-                <a href="/">Blog</a>
+                <a href="/loginhereko">Blog</a>
               </li>
               <li className="nav_links">
                 <a href="/">About</a>
               </li>
               <li className="nav_links">
                 <a href="/">Contact</a>
+              </li>
+              {user ? (
+                <li className="nav_links">
+                  <img src={user.profilePic} alt="profile" />{' '}
+                </li>
+              ) : (
+                <li className="nav_links">
+                  <a href="/">Login</a>
+                </li>
+              )}
+              <li className="nav_links" onClick={handleLogout}>
+                <a href="/">{user && 'LOGOUT'}</a>
               </li>
               <li
                 className="nav_links hamburger_menu"

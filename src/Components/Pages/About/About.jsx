@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './about.css';
 import img from '../../Assets/bg.jpg';
 import pp from '../../Assets/profile.jpg';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Posts from '../Posts/Posts';
 
-const About = () => {
+const About = ({ posts }) => {
+  const [cats, setCats] = useState([]);
+  console.log(posts);
+
+  useEffect(() => {
+    const getCats = async () => {
+      const res = await axios.get('/categories');
+      setCats(res.data);
+    };
+    getCats();
+  }, []);
   return (
     <section style={{ marginTop: '15vh' }}>
       <div className="smallLine"></div>
@@ -14,7 +27,7 @@ const About = () => {
         <div className="about_left">
           <div className="date">Nov. 15th 2016</div>
           <div className="heading">Modeling & Stylist in USA</div>
-          <div className="category">LIFESTYLE</div>
+          <div className="category_heading">LIFESTYLE</div>
           <img src={img} alt="post image" className="post_img" />
           <p className="main_desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias
@@ -29,9 +42,13 @@ const About = () => {
           <button className="share">
             Read more <i className="ri-arrow-right-fill"></i>
           </button>
+          <Posts />
         </div>
         <div className="about_right">
-          <div className="col-md-12 col-md-offset-0 text-center line">
+          <div
+            className="col-md-12 col-md-offset-0 mt-5 text-center line
+          "
+          >
             <h2>
               <span>About Me</span>
             </h2>
@@ -47,7 +64,6 @@ const About = () => {
               aut, commodi incidunt deleniti eaque.
             </p>
           </div>
-          {/* Social icons */}
           <div className="social_icons">
             <a href="https://www.facebook.com/rohan.chaulagain.5">
               {' '}
@@ -60,22 +76,62 @@ const About = () => {
               <i className="ri-github-fill"></i>
             </a>
           </div>
-          {/* Latest Post */}
-          <div className="col-md-12 col-md-offset-0 text-center line latest">
+          {/* Category */}
+          <div
+            className="col-md-12 col-md-offset-0 text-center line"
+            style={{ marginTop: '3em' }}
+          >
             <h2>
-              <span>Latest Post</span>
+              <span>Categories</span>
+            </h2>
+            <div className="categories">
+              <ul className="category">
+                {cats.map(cat => {
+                  return (
+                    <Link to={`/?cat=${cat.name}`}>
+                      <li>
+                        <i className="ri-checkbox-circle-line"></i> {cat.name}
+                      </li>
+                    </Link>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+
+          {/* Latest Post */}
+          <div
+            className="col-md-12 col-md-offset-0 mt-5 text-center line
+          "
+          >
+            <h2>
+              <span>Latest Posts</span>
             </h2>
           </div>
-          <div className="latest_posts">
-            <div className="latest_post">
-              <img src={img} alt="latest_post" className="latest_post_img" />
-              <div className="latest_post_desc">
-                <div className="latest_post_desc_date">Dec. 25, 2019</div>
-                <div className="latest_post_desc_title">
-                  Most Beautiful Site in 2019
+
+          {posts.slice(0, 3).map(post => {
+            return (
+              <div className="latest_posts">
+                <div className="latest_post">
+                  <img
+                    src={post.photo}
+                    alt="latest_post"
+                    className="latest_post_img"
+                  />
+
+                  <div className="latest_post_desc">
+                    <div className="latest_post_desc_title">{post.title}</div>
+                    <div className="latest_post_desc_date">
+                      {' '}
+                      {new Date(post.createdAt).toDateString()}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            );
+          })}
+          <div className="share load_more">
+            Load More <i className="ri-arrow-right-line"></i>
           </div>
         </div>
       </div>

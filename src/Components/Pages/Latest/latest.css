@@ -7,19 +7,26 @@
   gap: 2rem;
   margin-top: var(--margin);
 }
-
+.latest > * {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  text-align: center !important;
+}
 .latest_heading {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 0.5rem;
+  opacity: 0.8;
 }
 .latest_desc {
   opacity: 0.8;
   margin-bottom: 0.5rem;
 }
 .latest_img {
-  height: 20vw;
-  width: 20vw;
+  height: 15vw;
+  width: 15vw;
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 1vw;

@@ -1,0 +1,20 @@
+.login {
+  margin-top: 1rem;
+  display: flex;
+}
+.login > * {
+  flex-basis: 100%;
+}
+.login_left,
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.loginForm {
+}
+.login_right {
+  height: 100%;
+  width: 100%;
+}
